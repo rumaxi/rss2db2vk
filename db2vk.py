@@ -122,7 +122,7 @@ def update():
                             log.log(31,'[ {pub_name} ] successfully posted, {left} queued'.format(pub_name = pub_name, left = left))
                 if not res:
                             feed_t.update({ '_id': post.get('_id') }, { "$set": { 'status': 'error' } })
-                            log.log(31,'[ {pub_name} ] unknown error, {left} queued'.format(pub_name = pub_name, left = left))
+                            log.error('[ {pub_name} ] unknown error, {left} queued'.format(pub_name = pub_name, left = left))
         else:
             log.debug('update() -> False')
         client.close()
